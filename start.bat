@@ -1,0 +1,6 @@
+@echo off
+echo Starting Family Tree Viewer...
+echo This will download and run a small web server.
+echo Please wait...
+npx -y http-server . -o
+pause

@@ -15,9 +15,9 @@
   <link rel="icon" href="favicon.png" type="image/png" />
   <title>Семейное древо</title>
   <script>
-    // Simple redirect to load 3.ged with CORS disabled
-    if (!window.location.search) {
-      window.location.replace('?url=./3.ged&handleCors=false');
+    // Redirect to load 3.ged using hash-based URL format
+    if (!window.location.hash) {
+      window.location.replace('#/view?url=3.ged&handleCors=false');
     }
   </script>
   <script type="module" crossorigin src="./assets/index-CVXqMn9t.js"></script>

@@ -13,32 +13,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
   <link rel="icon" href="favicon.png" type="image/png" />
-  <title>Topola Genealogy Viewer</title>
+  <title>Семейное древо</title>
   <script>
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const url = params.get('url');
-      const handleCors = params.get('handleCors');
-
-      // Logic: If no URL is provided, OR if it's the raw relative '3.ged' (which might fail with proxy),
-      // we redirect to the absolute URL version with CORS proxy disabled.
-      if (!url || (url === '3.ged' && handleCors !== 'false')) {
-        // Calculate absolute URL for 3.ged
-        let baseUrl = window.location.href.split('?')[0];
-        // Remove index.html if present to get directory root
-        if (baseUrl.endsWith('index.html')) {
-          baseUrl = baseUrl.substring(0, baseUrl.length - 'index.html'.length);
-        }
-        // Ensure trailing slash
-        if (!baseUrl.endsWith('/')) {
-          baseUrl += '/';
-        }
-        const absoluteGedcomUrl = baseUrl + '3.ged';
-
-        // Redirect to the robust working URL
-        window.location.replace('?url=' + encodeURIComponent(absoluteGedcomUrl) + '&handleCors=false');
-      }
-    })();
+    // Simple redirect to load 3.ged with CORS disabled
+    if (!window.location.search) {
+      window.location.replace('?url=./3.ged&handleCors=false');
+    }
   </script>
   <script type="module" crossorigin src="./assets/index-CVXqMn9t.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-Dw7ALnar.css">
